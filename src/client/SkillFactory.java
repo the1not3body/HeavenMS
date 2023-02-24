@@ -204,10 +204,12 @@ public class SkillFactory {
                 case Page.POWER_GUARD:
                 case Page.SWORD_BOOSTER:
                 case Page.THREATEN:
+                    case Page.FINAL_ATTACK_SWORD_BUFF:
+                    case Page.FINAL_ATTACK_BW_BUFF:
                 case WhiteKnight.BW_FIRE_CHARGE:
                 case WhiteKnight.BW_ICE_CHARGE:
                 case WhiteKnight.BW_LIT_CHARGE:
-                case WhiteKnight.MAGIC_CRASH:
+                case WhiteKnight.ToTal_CRASH:
                 case WhiteKnight.SWORD_FIRE_CHARGE:
                 case WhiteKnight.SWORD_ICE_CHARGE:
                 case WhiteKnight.SWORD_LIT_CHARGE:

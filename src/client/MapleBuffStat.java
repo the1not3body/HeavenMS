@@ -29,6 +29,7 @@ public enum MapleBuffStat {
     STANCE(0x10L),
     SHARP_EYES(0x20L),
     MANA_REFLECTION(0x40L),
+    CRASH(0x80L),
     //ALWAYS_RIGHT(0X80L),
     SHADOW_CLAW(0x100L),
     INFINITY(0x200L),

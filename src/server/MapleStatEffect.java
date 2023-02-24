@@ -557,6 +557,9 @@ public class MapleStatEffect {
                 case ThunderBreaker.LIGHTNING_CHARGE:
                     statups.add(new Pair<>(MapleBuffStat.WK_CHARGE, Integer.valueOf(x)));
                     break;
+                case WhiteKnight.ToTal_CRASH:
+                    statups.add(new Pair<> (MapleBuffStat.CRASH, Integer.valueOf(x)));
+                    break;
                 case DragonKnight.DRAGON_BLOOD:
                     statups.add(new Pair<>(MapleBuffStat.DRAGONBLOOD, Integer.valueOf(ret.x)));
                     break;
@@ -568,6 +571,8 @@ public class MapleStatEffect {
                     break;
                 case DawnWarrior.FINAL_ATTACK:
                 case WindArcher.FINAL_ATTACK:
+                case Page.FINAL_ATTACK_BW_BUFF:
+                case Page.FINAL_ATTACK_SWORD_BUFF:
                     statups.add(new Pair<>(MapleBuffStat.FINALATTACK, Integer.valueOf(x)));
                     break;
                 // MAGICIAN
@@ -751,7 +756,7 @@ public class MapleStatEffect {
                 // ----------------------------- MONSTER STATUS ---------------------------------- //
                 case Crusader.ARMOR_CRASH:
                 case DragonKnight.POWER_CRASH:
-                case WhiteKnight.MAGIC_CRASH:
+                //case WhiteKnight.ToTal_CRASH:
                     monsterStatus.put(MonsterStatus.SEAL_SKILL, Integer.valueOf(1));
                     break;
                 case Rogue.DISORDER:
@@ -1542,7 +1547,7 @@ public class MapleStatEffect {
             case NightWalker.SHADOW_WEB:
             case Crusader.ARMOR_CRASH:
             case DragonKnight.POWER_CRASH:
-            case WhiteKnight.MAGIC_CRASH:
+//            case WhiteKnight.ToTal_CRASH:
             case Priest.DISPEL:
             case SuperGM.HEAL_PLUS_DISPEL:
                 return true;
@@ -1703,7 +1708,8 @@ public class MapleStatEffect {
     }
 
     private boolean isCrash() {
-        return skill && (sourceid == DragonKnight.POWER_CRASH || sourceid == Crusader.ARMOR_CRASH || sourceid == WhiteKnight.MAGIC_CRASH);
+//        return skill && (sourceid == DragonKnight.POWER_CRASH || sourceid == Crusader.ARMOR_CRASH || sourceid == WhiteKnight.ToTal_CRASH);
+          return skill && (sourceid == DragonKnight.POWER_CRASH || sourceid == Crusader.ARMOR_CRASH);
     }
     
     private boolean isSeal() {
@@ -1772,7 +1778,7 @@ public class MapleStatEffect {
     }
 
     private boolean isCygnusFA() {
-        return skill && (sourceid == DawnWarrior.FINAL_ATTACK || sourceid == WindArcher.FINAL_ATTACK);
+        return skill && (sourceid == DawnWarrior.FINAL_ATTACK || sourceid == WindArcher.FINAL_ATTACK || sourceid == Page.FINAL_ATTACK_BW_BUFF || sourceid == Page.FINAL_ATTACK_SWORD_BUFF);
     }
 
     private boolean isHyperBody() {
