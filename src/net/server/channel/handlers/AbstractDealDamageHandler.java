@@ -167,7 +167,7 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                     if (player.isAlive()) {
                         if(attack.skill == Aran.BODY_PRESSURE || attack.skill == Marauder.ENERGY_CHARGE || attack.skill == ThunderBreaker.ENERGY_CHARGE) {  // thanks IxianMace for noticing Energy Charge skills refreshing on touch
                             // prevent touch dmg skills refreshing
-                        } else if(attack.skill == DawnWarrior.FINAL_ATTACK || attack.skill == WindArcher.FINAL_ATTACK) {
+                        } else if(attack.skill == DawnWarrior.FINAL_ATTACK || attack.skill == WindArcher.FINAL_ATTACK || attack.skill == Page.FINAL_ATTACK_BW_BUFF || attack.skill == Page.FINAL_ATTACK_SWORD_BUFF) {
                             // prevent cygnus FA refreshing
                             mobCount = 15;
                         } else if(attack.skill == NightWalker.POISON_BOMB) {// Poison Bomb
@@ -175,7 +175,7 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                         } else {
                             attackEffect.applyTo(player);
                             
-                            if (attack.skill == Page.FINAL_ATTACK_BW || attack.skill == Page.FINAL_ATTACK_SWORD || attack.skill == Fighter.FINAL_ATTACK_SWORD
+                            if ( attack.skill == Fighter.FINAL_ATTACK_SWORD
                                     || attack.skill == Fighter.FINAL_ATTACK_AXE || attack.skill == Spearman.FINAL_ATTACK_SPEAR || attack.skill == Spearman.FINAL_ATTACK_POLEARM
                                     || attack.skill == Hunter.FINAL_ATTACK || attack.skill == Crossbowman.FINAL_ATTACK) {
                                 
@@ -271,7 +271,7 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                         distanceToDetect += 250000;
                     
                     else if(attack.skill == Shadower.BOOMERANG_STEP)
-                        distanceToDetect += 60000;
+                        distanceToDetect += 80000;
                     
                     if (distance > distanceToDetect) {
                         AutobanFactory.DISTANCE_HACK.alert(player, "Distance Sq to monster: " + distance + " SID: " + attack.skill + " MID: " + monster.getId());
@@ -287,6 +287,7 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                         }
                     } else { 
                         if (monster.isBuffed(MonsterStatus.WEAPON_IMMUNITY)) {
+<<<<<<< HEAD
                             Collections.fill(onedList, 1);
 
                             if (player.getBuffEffect(MapleBuffStat.CRASH) != null) { // apply TOTAL_CRASH buff to mob for removing the WEAPON_IMMUNITY of boss mob
@@ -296,6 +297,16 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                                     monster.debuffMobStat(MonsterStatus.WEAPON_IMMUNITY);
                                 }
                             }
+=======
+                                Collections.fill(onedList, 1);
+                                
+                                if (player.getBuffEffect(MapleBuffStat.CRASH) != null) {
+                                    double prop = 0.25;
+                                    if (Math.random() < prop) {
+                                        monster.debuffMobStat(MonsterStatus.WEAPON_IMMUNITY);
+                                    }
+                                }
+>>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
                         }
                     }
                     
@@ -428,9 +439,15 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                                         monster.setTempEffectiveness(Element.FIRE, ElementalEffectiveness.WEAK, chargeSkill.getEffect(player.getSkillLevel(chargeSkill)).getY() * 1000);
                                         break;
                                     }
+<<<<<<< HEAD
                                     if (charge == WhiteKnight.BW_LIT_CHARGE || charge == WhiteKnight.SWORD_LIT_CHARGE) {
                                         monster.setTempEffectiveness(Element.LIGHTING, ElementalEffectiveness.WEAK, chargeSkill.getEffect(player.getSkillLevel(chargeSkill)).getY() * 1000);
                                         break; // dont know how this works, but add 1st. lol
+=======
+                                     if (charge == WhiteKnight.BW_LIT_CHARGE || charge == WhiteKnight.SWORD_LIT_CHARGE) {
+                                        monster.setTempEffectiveness(Element.LIGHTING, ElementalEffectiveness.WEAK, chargeSkill.getEffect(player.getSkillLevel(chargeSkill)).getY() * 1000);
+                                        break;
+>>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
                                     }
                                 }                              
                             }
@@ -808,7 +825,7 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
             canCrit = true;
             calcDmgMax *= 1.4;
         }
-        
+       
         boolean shadowPartner = false;
         if(chr.getBuffEffect(MapleBuffStat.SHADOWPARTNER) != null) {
             shadowPartner = true;
@@ -832,6 +849,7 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                 if(monster != null) {
                     if(sourceID == WhiteKnight.BW_FIRE_CHARGE || sourceID == WhiteKnight.SWORD_FIRE_CHARGE) {
                         if(monster.getStats().getEffectiveness(Element.FIRE) == ElementalEffectiveness.WEAK) {
+<<<<<<< HEAD
                             calcDmgMax *= 1.15 + level * 0.015;
                         }
                     } else if(sourceID == WhiteKnight.BW_ICE_CHARGE || sourceID == WhiteKnight.SWORD_ICE_CHARGE) {
@@ -841,6 +859,17 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                     } else if(sourceID == WhiteKnight.BW_LIT_CHARGE || sourceID == WhiteKnight.SWORD_LIT_CHARGE) {
                         if(monster.getStats().getEffectiveness(Element.LIGHTING) == ElementalEffectiveness.WEAK) {
                             calcDmgMax *= 1.15 + level * 0.015;
+=======
+                            calcDmgMax *= 1.2 + level * 0.015;
+                        }
+                    } else if(sourceID == WhiteKnight.BW_ICE_CHARGE || sourceID == WhiteKnight.SWORD_ICE_CHARGE) {
+                        if(monster.getStats().getEffectiveness(Element.ICE) == ElementalEffectiveness.WEAK) {
+                            calcDmgMax *= 1.2 + level * 0.015;
+                        }
+                    } else if(sourceID == WhiteKnight.BW_LIT_CHARGE || sourceID == WhiteKnight.SWORD_LIT_CHARGE) {
+                        if(monster.getStats().getEffectiveness(Element.LIGHTING) == ElementalEffectiveness.WEAK) {
+                            calcDmgMax *= 1.2 + level * 0.015;
+>>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
                         }
                     } else if(sourceID == Paladin.BW_HOLY_CHARGE || sourceID == Paladin.SWORD_HOLY_CHARGE) {
                         if(monster.getStats().getEffectiveness(Element.HOLY) == ElementalEffectiveness.WEAK) {
@@ -862,13 +891,13 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                             ElementalEffectiveness eff = monster.getElementalEffectiveness(skill.getElement());
                             if(eff == ElementalEffectiveness.WEAK) {
                                 calcDmgMax *= 1.5;
-                            } else if(eff == ElementalEffectiveness.STRONG) {
-                                //calcDmgMax *= 0.5;
+                            } else  {
+                                calcDmgMax *= 1.0;
                             }
                         } else {
                             // Since we already know the skill has an elemental attribute, but we dont know if the monster is weak or not, lets
                             // take the safe approach and just assume they are weak.
-                            calcDmgMax *= 1.5;
+                            calcDmgMax *= 1.2;
                         }
                     }
                     if(ret.skill == FPWizard.POISON_BREATH || ret.skill == FPMage.POISON_MIST || ret.skill == FPArchMage.FIRE_DEMON || ret.skill == ILArchMage.ICE_DEMON) {
@@ -952,4 +981,5 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
     private static int rand(int l, int u) {
         return (int) ((Math.random() * (u - l + 1)) + l);
     }
+    
 }

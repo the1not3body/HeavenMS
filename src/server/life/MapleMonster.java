@@ -1364,7 +1364,11 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         aggroUpdateController();
     }
 
+<<<<<<< HEAD
     public void debuffMobStat(MonsterStatus stat) { // use to remove mob buff at another file
+=======
+     public void debuffMobStat(MonsterStatus stat) {
+>>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
         MonsterStatusEffect oldEffect;
         statiLock.lock();
         try {
@@ -1390,6 +1394,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
                 for(MonsterStatus ms : statups) {
                     debuffMobStat(ms);
                 }
+<<<<<<< HEAD
             } else if(skillid == Crusader.ARMOR_CRASH){  /** Just remove the def by armor_crash */
                 debuffMobStat(statups[1]);
                 // int i = (skillid == Crusader.ARMOR_CRASH ? 1 : (skillid == WhiteKnight.MAGIC_CRASH ? 2 : 0));
@@ -1413,6 +1418,35 @@ public class MapleMonster extends AbstractLoadedMapleLife {
                 //         }
                 //     }
                 // }
+=======
+            } else {    // is a crash skill
+//                int i = (skillid == Crusader.ARMOR_CRASH ? 1 : (skillid == WhiteKnight.ToTal_CRASH ? 2 : 0));
+                int i = (skillid == Crusader.ARMOR_CRASH ? 1 :0);
+                debuffMobStat(statups[i]);
+
+                if(YamlConfig.config.server.USE_ANTI_IMMUNITY_CRASH) {
+//                    if (skillid == Crusader.ARMOR_CRASH) {
+//                        if(!isBuffed(MonsterStatus.WEAPON_REFLECT)) {
+//                            debuffMobStat(MonsterStatus.WEAPON_IMMUNITY);
+//                        }
+//                        if(!isBuffed(MonsterStatus.MAGIC_REFLECT)) {
+//                            debuffMobStat(MonsterStatus.MAGIC_IMMUNITY);
+//                        }
+//                    } else
+                    if (skillid == WhiteKnight.ToTal_CRASH) {
+                         if(!isBuffed(MonsterStatus.WEAPON_REFLECT)) {
+                            debuffMobStat(MonsterStatus.WEAPON_IMMUNITY);
+                        }
+                        if(!isBuffed(MonsterStatus.MAGIC_REFLECT)) {
+                            debuffMobStat(MonsterStatus.MAGIC_IMMUNITY);
+                        }
+                    } else {
+                        if(!isBuffed(MonsterStatus.WEAPON_REFLECT)) {
+                            debuffMobStat(MonsterStatus.WEAPON_IMMUNITY);
+                        }
+                    }
+                }
+>>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
             }
         } finally {
             statiLock.unlock();
