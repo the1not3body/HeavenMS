@@ -557,6 +557,9 @@ public class MapleStatEffect {
                 case ThunderBreaker.LIGHTNING_CHARGE:
                     statups.add(new Pair<>(MapleBuffStat.WK_CHARGE, Integer.valueOf(x)));
                     break;
+                case WhiteKnight.TOTAL_CRASH: // TOTOAL_CRASH BUFF ICON WILL SHOW UP AT RIEGHT TOP
+                    statups.add(new Pair<> (MapleBuffStat.CRASH, Integer.valueOf(x)));
+                    break;
                 case DragonKnight.DRAGON_BLOOD:
                     statups.add(new Pair<>(MapleBuffStat.DRAGONBLOOD, Integer.valueOf(ret.x)));
                     break;
@@ -751,7 +754,7 @@ public class MapleStatEffect {
                 // ----------------------------- MONSTER STATUS ---------------------------------- //
                 case Crusader.ARMOR_CRASH:
                 case DragonKnight.POWER_CRASH:
-                case WhiteKnight.MAGIC_CRASH:
+                // case WhiteKnight.MAGIC_CRASH:
                     monsterStatus.put(MonsterStatus.SEAL_SKILL, Integer.valueOf(1));
                     break;
                 case Rogue.DISORDER:
@@ -1542,7 +1545,7 @@ public class MapleStatEffect {
             case NightWalker.SHADOW_WEB:
             case Crusader.ARMOR_CRASH:
             case DragonKnight.POWER_CRASH:
-            case WhiteKnight.MAGIC_CRASH:
+            case WhiteKnight.TOTAL_CRASH:
             case Priest.DISPEL:
             case SuperGM.HEAL_PLUS_DISPEL:
                 return true;
@@ -1703,7 +1706,7 @@ public class MapleStatEffect {
     }
 
     private boolean isCrash() {
-        return skill && (sourceid == DragonKnight.POWER_CRASH || sourceid == Crusader.ARMOR_CRASH || sourceid == WhiteKnight.MAGIC_CRASH);
+        return skill && (sourceid == DragonKnight.POWER_CRASH || sourceid == Crusader.ARMOR_CRASH || sourceid == WhiteKnight.TOTAL_CRASH);
     }
     
     private boolean isSeal() {

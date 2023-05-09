@@ -2645,13 +2645,29 @@ public class MapleCharacter extends AbstractMapleCharacterObject {
         }
     }
 
-    public void dispel() {
+    public void dispel() { // Add more char Buff wont be dispeled 
         if(!(YamlConfig.config.server.USE_UNDISPEL_HOLY_SHIELD && this.hasActiveBuff(Bishop.HOLY_SHIELD))) {
             List<MapleBuffStatValueHolder> mbsvhList = getAllStatups();
             for (MapleBuffStatValueHolder mbsvh : mbsvhList) {
                 if (mbsvh.effect.isSkill()) {
-                    if (mbsvh.effect.getBuffSourceId() != Aran.COMBO_ABILITY) { // check discovered thanks to Croosade dev team
-                        cancelEffect(mbsvh.effect, false, mbsvh.startTime);
+                    // if (mbsvh.effect.getBuffSourceId() != Aran.COMBO_ABILITY) { // check discovered thanks to Croosade dev team
+                    //     cancelEffect(mbsvh.effect, false, mbsvh.startTime);
+                    // }
+                    switch (mbsvh.effect.getBuffSourceId()) {
+                        case Aran.COMBO_ABILITY:
+                        // case Magician.MAGIC_GUARD:
+                        // case BlazeWizard.MAGIC_GUARD:
+                        case Legend.ECHO_OF_HERO:
+                        case Noblesse.ECHO_OF_HERO:
+                        case Beginner.ECHO_OF_HERO:
+                        case Crusader.COMBO:
+                        case DawnWarrior.COMBO:
+                        case Marauder.TRANSFORMATION:
+                        case Buccaneer.SUPER_TRANSFORMATION:
+                        case Bowmaster.HAMSTRING:
+                            continue;
+                        default:
+                              cancelEffect(mbsvh.effect, false, mbsvh.startTime);
                     }
                 }
             }
