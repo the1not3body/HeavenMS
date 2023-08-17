@@ -209,12 +209,8 @@ public class SkillFactory {
                 case WhiteKnight.BW_FIRE_CHARGE:
                 case WhiteKnight.BW_ICE_CHARGE:
                 case WhiteKnight.BW_LIT_CHARGE:
-<<<<<<< HEAD
                 // case WhiteKnight.MAGIC_CRASH:
                 case WhiteKnight.TOTAL_CRASH: // change whiteknight magic crash to totol crash buff
-=======
-                case WhiteKnight.ToTal_CRASH:
->>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
                 case WhiteKnight.SWORD_FIRE_CHARGE:
                 case WhiteKnight.SWORD_ICE_CHARGE:
                 case WhiteKnight.SWORD_LIT_CHARGE:

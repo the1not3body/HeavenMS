@@ -287,7 +287,6 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                         }
                     } else { 
                         if (monster.isBuffed(MonsterStatus.WEAPON_IMMUNITY)) {
-<<<<<<< HEAD
                             Collections.fill(onedList, 1);
 
                             if (player.getBuffEffect(MapleBuffStat.CRASH) != null) { // apply TOTAL_CRASH buff to mob for removing the WEAPON_IMMUNITY of boss mob
@@ -297,16 +296,6 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                                     monster.debuffMobStat(MonsterStatus.WEAPON_IMMUNITY);
                                 }
                             }
-=======
-                                Collections.fill(onedList, 1);
-                                
-                                if (player.getBuffEffect(MapleBuffStat.CRASH) != null) {
-                                    double prop = 0.25;
-                                    if (Math.random() < prop) {
-                                        monster.debuffMobStat(MonsterStatus.WEAPON_IMMUNITY);
-                                    }
-                                }
->>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
                         }
                     }
                     
@@ -439,15 +428,9 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                                         monster.setTempEffectiveness(Element.FIRE, ElementalEffectiveness.WEAK, chargeSkill.getEffect(player.getSkillLevel(chargeSkill)).getY() * 1000);
                                         break;
                                     }
-<<<<<<< HEAD
                                     if (charge == WhiteKnight.BW_LIT_CHARGE || charge == WhiteKnight.SWORD_LIT_CHARGE) {
                                         monster.setTempEffectiveness(Element.LIGHTING, ElementalEffectiveness.WEAK, chargeSkill.getEffect(player.getSkillLevel(chargeSkill)).getY() * 1000);
                                         break; // dont know how this works, but add 1st. lol
-=======
-                                     if (charge == WhiteKnight.BW_LIT_CHARGE || charge == WhiteKnight.SWORD_LIT_CHARGE) {
-                                        monster.setTempEffectiveness(Element.LIGHTING, ElementalEffectiveness.WEAK, chargeSkill.getEffect(player.getSkillLevel(chargeSkill)).getY() * 1000);
-                                        break;
->>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
                                     }
                                 }                              
                             }
@@ -849,17 +832,6 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                 if(monster != null) {
                     if(sourceID == WhiteKnight.BW_FIRE_CHARGE || sourceID == WhiteKnight.SWORD_FIRE_CHARGE) {
                         if(monster.getStats().getEffectiveness(Element.FIRE) == ElementalEffectiveness.WEAK) {
-<<<<<<< HEAD
-                            calcDmgMax *= 1.15 + level * 0.015;
-                        }
-                    } else if(sourceID == WhiteKnight.BW_ICE_CHARGE || sourceID == WhiteKnight.SWORD_ICE_CHARGE) {
-                        if(monster.getStats().getEffectiveness(Element.ICE) == ElementalEffectiveness.WEAK) {
-                            calcDmgMax *= 1.15 + level * 0.015;
-                        }
-                    } else if(sourceID == WhiteKnight.BW_LIT_CHARGE || sourceID == WhiteKnight.SWORD_LIT_CHARGE) {
-                        if(monster.getStats().getEffectiveness(Element.LIGHTING) == ElementalEffectiveness.WEAK) {
-                            calcDmgMax *= 1.15 + level * 0.015;
-=======
                             calcDmgMax *= 1.2 + level * 0.015;
                         }
                     } else if(sourceID == WhiteKnight.BW_ICE_CHARGE || sourceID == WhiteKnight.SWORD_ICE_CHARGE) {
@@ -869,7 +841,6 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                     } else if(sourceID == WhiteKnight.BW_LIT_CHARGE || sourceID == WhiteKnight.SWORD_LIT_CHARGE) {
                         if(monster.getStats().getEffectiveness(Element.LIGHTING) == ElementalEffectiveness.WEAK) {
                             calcDmgMax *= 1.2 + level * 0.015;
->>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
                         }
                     } else if(sourceID == Paladin.BW_HOLY_CHARGE || sourceID == Paladin.SWORD_HOLY_CHARGE) {
                         if(monster.getStats().getEffectiveness(Element.HOLY) == ElementalEffectiveness.WEAK) {

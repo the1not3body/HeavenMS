@@ -7,25 +7,14 @@ worlds:
     server_message: Welcome to Scania!
     event_message: Scania!
     why_am_i_recommended: Welcome to Scania!
-<<<<<<< HEAD
-    channels: 3
-    exp_rate: 3
+    channels: 1
+    exp_rate: 2
     meso_rate: 2
     drop_rate: 2
     boss_drop_rate: 2                      #NOTE: Boss drop rate OVERRIDES common drop rate, for bosses-only.
     quest_rate: 2                           #Multiplier for Exp & Meso gains when completing a quest. Only available when USE_QUEST_RATE is true. Stacks with server Exp & Meso rates.
     fishing_rate: 1                       #Multiplier for success likelihood on meso thrown during fishing.
     travel_rate: 1                        #Means of transportation rides/departs using 1/N of the default time.
-=======
-    channels: 2
-    exp_rate: 2
-    meso_rate: 2
-    drop_rate: 2
-    boss_drop_rate: 3                      #NOTE: Boss drop rate OVERRIDES common drop rate, for bosses-only.
-    quest_rate: 2                           #Multiplier for Exp & Meso gains when completing a quest. Only available when USE_QUEST_RATE is true. Stacks with server Exp & Meso rates.
-    fishing_rate: 10                        #Multiplier for success likelihood on meso thrown during fishing.
-    travel_rate: 10                         #Means of transportation rides/departs using 1/N of the default time.
->>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
 
     #Properties for Bera 1
   - flag: 0
@@ -173,13 +162,9 @@ server:
     USE_THREAD_TRACKER: false        #[SEVERE] This deadlock auditing thing will bloat the memory as fast as the time frame one takes to lose track of a raindrop on a tempesting day. Only for debugging purposes.
 
     #Database Configuration
-    DB_URL: "jdbc:mysql://localhost:3306/heavenms"
+    DB_URL: "jdbc:mysql://172.17.0.2:3306/heavenms?useSSL=false"
     DB_USER: "root"
-<<<<<<< HEAD
-    DB_PASS: "leegohigh"
-=======
     DB_PASS: "123456"
->>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
     DB_CONNECTION_POOL: true        #Installs a connection pool to hub DB connections. Set false to default.
 
     #Login Configuration
@@ -213,9 +198,9 @@ server:
     LOGIN_ATTEMPT_DURATION: 120         #Period in seconds the login attempt remains registered on the system.
 
     #Ip Configuration
-    HOST: 43.143.90.87
-    LOCALSERVER: false
-    GMSERVER: true
+    HOST: 127.0.0.1
+    LOCALSERVER: true
+    GMSERVER: false
 
     #Other configuration
     SHUTDOWNHOOK: true

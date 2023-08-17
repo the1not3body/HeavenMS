@@ -34,10 +34,6 @@ public class WhiteKnight {
     public static final int BW_ICE_CHARGE = 1211006;
     public static final int SWORD_LIT_CHARGE = 1211007;
     public static final int BW_LIT_CHARGE = 1211008;
-<<<<<<< HEAD
     // public static final int MAGIC_CRASH = 1211009;
     public static final int TOTAL_CRASH = 1211009;
-=======
-    public static final int ToTal_CRASH = 1211009;
->>>>>>> 3650790db87d704c5cfdbd7ab71212369774bf7d
 }
